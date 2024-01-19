@@ -7,6 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JpashopApplication {
 
 	public static void main(String[] args) {
+		/*
+		* 예제 시작 전.
+		* 로그인과 권한 관리 X
+		* 파라미터 검증과 예외 처리 단순화
+		* 상품은 도서만 사용
+		* 카테고리 사용 X
+		* 배송 정보 사용 X
+		* */
 		Hello hello = new Hello();
 		hello.setData("hello");
 		String data = hello.getData();
