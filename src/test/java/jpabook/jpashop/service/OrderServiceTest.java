@@ -62,7 +62,7 @@ class OrderServiceTest {
 
     @Test
     void 상품주문_재고수량초과() throws Exception {
-
+//        OrderService -> Order -> Item -> removeStock(별도 단위 테스트도 필요) -> 개수 확인
     }
     
 }
