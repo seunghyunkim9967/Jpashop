@@ -1,6 +1,7 @@
 package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.OrderStatus;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -12,14 +13,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderSearch {
 
-    private final EntityManager em;
+//    private final EntityManager em;
+//
+//    public void save(Order order) { em.persist(order); }
+//
+//    public Order findOne(Long id) { return em.find(Order.class, id); }
 
-    public void save(Order order) { em.persist(order); }
-
-    public Order findOne(Long id) { return em.find(Order.class, id); }
-
-    public List<Order> findAll(OrderSearch orderSearch) {
-        em.createQuery("select o from Order o join o.member m ", Order.class);
-    }
-
+    private String memberName; //회원 이름
+    private OrderStatus orderStatus; //주문 상태[ORDER, CANCEL]
 }
