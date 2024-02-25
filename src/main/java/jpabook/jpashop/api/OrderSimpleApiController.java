@@ -22,6 +22,11 @@ public class OrderSimpleApiController {
 
     private final OrderRepository orderRepository;
 
+    /**
+     * V1. 엔티티 직접 노출
+     * - Hibernate5Module 모듈 등록, LAZY=null 처리
+     * - 양방향 관계 문제 발생 -> @JsonIgnore
+     */
     @GetMapping("/api/v1/simple-orders")
     public List<Order> ordersV1() {
         // Order 가지고옴 -> Order MTO(fetch = LAZY = DB에서 가져오지 않음(가짜 프록시 멤버 객체 생성), 자바 객체가 아님
@@ -29,5 +34,7 @@ public class OrderSimpleApiController {
         List<Order> all = orderRepository.findAllByString(new OrderSearch());
         return all;
     }
+
+
 
 }
