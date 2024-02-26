@@ -1,13 +1,21 @@
 package jpabook.jpashop;
 
+import org.hibernate.Hibernate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
+/*import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;*/
 
 @SpringBootApplication
 public class JpashopApplication {
 
+	/*@Bean
+	Hibernate5Module hibernate5Module() {
+		Hibernate5Module hibernate5Module = new Hibernate5Module();
+		//강제 지연 로딩 설정implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5' 추가 안됨 하지만 귀찮
+		hibernate5Module.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
+		return hibernate5Module;
+	}*/
 	public static void main(String[] args) {
 		/*
 		* 예제 시작 전.
@@ -35,6 +43,7 @@ public class JpashopApplication {
 		*/
 
 	}
+
 }
 
 
