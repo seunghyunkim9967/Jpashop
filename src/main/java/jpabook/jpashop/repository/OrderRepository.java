@@ -2,6 +2,7 @@ package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Order;
 
+import jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryDto;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -127,6 +128,14 @@ public class OrderRepository {
                 .setFirstResult(offset)
                 .setMaxResults(limit)
                 .getResultList();
+    }
+
+    public List<OrderSimpleQueryDto> findOrderDtos() {
+        em.createQuery(
+            "select o from Order o " +
+                    " join o.member m +" +
+                    "join o.delevery"
+        )
     }
 }
 
