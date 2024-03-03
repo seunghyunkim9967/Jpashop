@@ -28,6 +28,7 @@ import java.util.stream.Collectors;
 public class OrderSimpleApiController {
 
     private final OrderRepository orderRepository;
+    private final OrderSimpleQueryDto orderSimpleQueryDto;
 
     //DTO로 변환해서 반환해
 
@@ -75,7 +76,7 @@ public class OrderSimpleApiController {
 
     @GetMapping("/api/v4/simple-orders")
     public List<OrderSimpleQueryDto> ordersV4() {
-        return orderSimpleQueryRepository.findOrderDtos();
+        return orderSimpleQueryDto.findOrderDtos();
     }
 
 
