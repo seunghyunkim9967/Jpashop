@@ -30,6 +30,11 @@ public class OrderSimpleApiController {
     private final OrderRepository orderRepository;
     private final OrderSimpleQueryDto orderSimpleQueryDto;
 
+    // 쿼리방식 선택 권장 순서
+//    1. 엔티티 DTO 변환
+//    2. 필요하면 페치 조인 성능최적화(대부분 해결)
+//    3. DTO로 직접 조회
+//    4. 최후 JPA 네이티브 SQL or 스프링JDBC Template SQL 직접 사용
     //DTO로 변환해서 반환해
 
     /**
