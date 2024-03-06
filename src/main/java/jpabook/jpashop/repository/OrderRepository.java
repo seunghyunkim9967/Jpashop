@@ -130,13 +130,13 @@ public class OrderRepository {
                 .getResultList();
     }
 
-    public List<OrderSimpleQueryDto> findOrderDtos() {
-        em.createQuery(
-            "select new jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryDto(o.id, m.name, o.orderDate, o.status, d.address)" + // address = value type
-                    " from Order o " +
-                    " join o.member m +" +
-                    "join o.delevery d", OrderSimpleQueryDto.class)
-                .getResultList();
-    }
+//    public List<OrderSimpleQueryDto> findOrderDtos() {
+//        em.createQuery(
+//            "select new jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryDto(o.id, m.name, o.orderDate, o.status, d.address)" + // address = value type
+//                    " from Order o " +
+//                    " join o.member m +" +
+//                    "join o.delevery d", OrderSimpleQueryDto.class)
+//                .getResultList();
+//    }
 }
 

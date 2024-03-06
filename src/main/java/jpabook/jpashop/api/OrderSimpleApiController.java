@@ -16,6 +16,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
+
 /*
 *
 * xToOne(MTO, OTO)
@@ -28,7 +30,7 @@ import java.util.stream.Collectors;
 public class OrderSimpleApiController {
 
     private final OrderRepository orderRepository;
-    private final OrderSimpleQueryDto orderSimpleQueryDto;
+//    private final OrderSimpleQueryDto orderSimpleQueryDto;
 
     // 쿼리방식 선택 권장 순서
 //    1. 엔티티 DTO 변환
@@ -56,12 +58,13 @@ public class OrderSimpleApiController {
     }
 
     @GetMapping("/api/v2/simple-orders")
-    public List<SimpleOrderDto> ordersV2{
-        //order 2개 -> 5번 나감
-        // N+ -> 1 + 회원 N + 배송 N
-        return orderRepository.findAllByString(new OrderSearch()).stream()
+    public List<SimpleOrderDto> ordersV2() {
+        List<Order> orders = orderRepository.findAll();
+        List<SimpleOrderDto> result = orders.stream()
                 .map(o -> new SimpleOrderDto(o))
-                .collect(Collectors.toList());
+                .collect(toList());
+
+        return result;
     }
 
     /**
@@ -79,10 +82,10 @@ public class OrderSimpleApiController {
         return result;
     }
 
-    @GetMapping("/api/v4/simple-orders")
-    public List<OrderSimpleQueryDto> ordersV4() {
-        return orderSimpleQueryDto.findOrderDtos();
-    }
+//    @GetMapping("/api/v4/simple-orders")
+//    public List<OrderSimpleQueryDto> ordersV4() {
+//        return orderSimpleQueryDto.findOrderDtos();
+//    }
 
 
     @Data
