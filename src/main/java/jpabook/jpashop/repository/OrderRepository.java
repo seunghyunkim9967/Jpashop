@@ -1,8 +1,6 @@
 package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Order;
-
-import jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryDto;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -118,6 +116,9 @@ public class OrderRepository {
                                 " join fetch o.orderItems oi" +
                                 " join fetch oi.item i", Order.class)
                 .getResultList();
+        // distinct -> 전체 데이터가 아닌 엔티티 중복을 걸러줌
+        // .setFirstResult(1) .setMaxResults(100)
+        // (중요) 1 : N 페치조인 하는 순간 페이징 불가능! applyin in memory!!!
     }
 
     public List<Order> findAllWithMemberDelivery(int offset, int limit) {
@@ -134,9 +135,11 @@ public class OrderRepository {
 //        em.createQuery(
 //            "select new jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryDto(o.id, m.name, o.orderDate, o.status, d.address)" + // address = value type
 //                    " from Order o " +
-//                    " join o.member m +" +
+//                    " join o.member m " +
 //                    "join o.delevery d", OrderSimpleQueryDto.class)
 //                .getResultList();
 //    }
+
+
 }
 
