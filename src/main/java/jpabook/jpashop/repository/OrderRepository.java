@@ -130,7 +130,7 @@ public class OrderRepository {
                 .setMaxResults(limit)
                 .getResultList();
     }
-
+    //findOrderDtos 주석 제거후 실행해볼것
 //    public List<OrderSimpleQueryDto> findOrderDtos() {
 //        em.createQuery(
 //            "select new jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryDto(o.id, m.name, o.orderDate, o.status, d.address)" + // address = value type
