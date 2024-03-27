@@ -30,7 +30,7 @@ public class JpashopApplication {
 		String data = hello.getData();
 		System.out.println("data = " + data);
 
-
+		System.out.println("notebookPushTest");
 
 
 		SpringApplication.run(JpashopApplication.class, args);
